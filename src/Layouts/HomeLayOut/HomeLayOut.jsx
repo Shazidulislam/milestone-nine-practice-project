@@ -19,11 +19,11 @@ const HomeLayOut = () => {
             </nav>
             </header>
             {/* this is grid layout side */}
-            <main className='w-11/12 mx-auto mt-20 grid grid-cols-4  space-x-5'>
+            <main className='w-11/12 mx-auto mt-20 grid grid-cols-4 gap-4  '>
                 <aside>
                     <LeftAside></LeftAside>
                 </aside>
-                <section className="main col-span-2">
+                <section className="main col-span-2 ml-4 ">
                     <Outlet></Outlet>
                 </section>
                 <aside>

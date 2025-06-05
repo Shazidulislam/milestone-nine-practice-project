@@ -7,7 +7,6 @@ import { NavLink } from 'react-router';
 const Categoris = () => {
 
     const categories = use(categoryPromise)
-    console.log(categories)
     
     return (
         <div>
