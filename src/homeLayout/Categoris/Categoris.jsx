@@ -14,7 +14,7 @@ const Categoris = () => {
           <div className='w-10/12 mx-auto'>
               <button className='btn w-full mt-8  bg-slate-300'>National News</button>
           </div>
-            <nav className='grid grid-cols-1 mt-5 gap-4 '>
+            <nav className='grid grid-cols-1 mt-5 gap-3  '>
                 {
                     categories.map(category => <NavLink 
                          key={category.id} 
