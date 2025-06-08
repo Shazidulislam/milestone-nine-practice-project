@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import { CiShare2 } from "react-icons/ci";
 import { FaRegBookmark, FaStar } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-    const [readMore , setReadMore] = useState(false)
-    // const [ lessMore , setLessMore] = useState(true)
   const {
     title,
     author,
@@ -13,11 +12,9 @@ const NewsCard = ({ news }) => {
     total_view,
     rating,
     details,
-    // tags,
+    id,
   } = news;
-  const handleDeatilaRadMore=()=>{
-    setReadMore(true)
-  }
+
 
   const formattedDate = new Date( author.published_date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -57,27 +54,21 @@ const NewsCard = ({ news }) => {
         className="rounded-xl w-full object-cover h-56 mb-4"
       />
       {/* details section */}
-      {
-        readMore ? 
-         <p className="text-gray-600 text-sm mb-3 ">
-            {details}
-            <br />
-            <span onClick={()=>setReadMore(false)} className="font-bold cursor-pointer hover:underline  text-[#FF8C47]">Read Less</span>
-         </p> : 
-         <p className="text-gray-600 text-sm mb-3 line-clamp-4">{details.length > 200 ?
+        
+         <p className="text-gray-600 text-sm mb-3 line-clamp-4">
+          {details.length > 200 ?
     (<>
       {details.slice(0 ,200)}....
       <br />
-      <span onClick={handleDeatilaRadMore} className="font-bold cursor-pointer hover:underline  text-[#FF8C47]">Read More</span>
+      <Link to={`/news-details/${id}`} className="font-bold cursor-pointer hover:underline  text-[#FF8C47]">Read More</Link>
       </>)
       :(details)}</p>
-      }
     
 
   
       <div className="divider"></div>
       <div className="flex justify-between items-center text-sm text-gray-600">
-      
+      {/* rating */}
         <div className="flex  justify-between gap-2 items-center text-orange-500">
             {
                 Array.from({length:rating.number}).map((_,i)=>(

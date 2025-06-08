@@ -7,6 +7,9 @@ import CategoryNews from "../Pages/CategoryNews/CategoryNews";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AuthLayOut from "../Layouts/AuthLayOut/AuthLayOut";
+import NewsLayOut from "../Layouts/NewsLayOut/NewsLayOut";
+import PriviteRoute from "../PriviteRouter/PriviteRoute";
+import Loading from "../Pages/Loading/Loading";
 
 
 export const router =createBrowserRouter([
@@ -31,6 +34,7 @@ export const router =createBrowserRouter([
             path:"/category/:id",
             loader:()=>fetch("../news.json"),
             Component:CategoryNews,
+            hydrateFallbackElement:<Loading></Loading>
         }
       ]
       
@@ -51,7 +55,14 @@ export const router =createBrowserRouter([
     
         ]
     }
+
     ,
+    {
+        path:"/news-details/:id",
+        loader: ()=> fetch("../news.json"),
+        element:<PriviteRoute><NewsLayOut></NewsLayOut></PriviteRoute>,
+        hydrateFallbackElement:<Loading></Loading>
+    },
    
 //    error page
     {

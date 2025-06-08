@@ -5,8 +5,11 @@ import LaytestNews from '../../Components/LaytestNews/LaytestNews';
 import Navbar from '../../Components/Navbar/Navbar';
 import LeftAside from '../../homeLayout/LeftAsid/LeftAside';
 import RightAside from '../../homeLayout/RightAside/RightAside';
+import { useNavigation } from 'react-router';
+import Loading from '../../Pages/Loading/Loading';
 
 const HomeLayOut = () => {
+    const {state} = useNavigation()
     return (
         <div>
             <header>
@@ -24,7 +27,10 @@ const HomeLayOut = () => {
                     <LeftAside></LeftAside>
                 </aside>
                 <section className="main col-span-2 ml-4 ">
-                    <Outlet></Outlet>
+                    {
+                   
+                        state=="loading" ? <Loading></Loading> : <Outlet></Outlet>
+                    }
                 </section>
                 <aside className='sticky h-fit top-0'>
                     <RightAside></RightAside>
