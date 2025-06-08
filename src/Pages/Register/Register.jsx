@@ -33,7 +33,7 @@ const Register = () => {
       .catch((error) => {
         // An error occurred
         // ...
-        console.log(error)
+       setError(error)
         setUser(user)
       });
     

@@ -7,7 +7,6 @@ const PriviteRoute = ({children}) => {
 
     const { loading , user} = use(AuthContext)
     const location = useLocation()
-    console.log(location)
 
     if(loading){
         return <Loading></Loading>

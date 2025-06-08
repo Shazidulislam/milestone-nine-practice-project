@@ -7,7 +7,6 @@ import app from '../Firebase/firebase.config';
 const AuthProvider = ({children}) => {
     const [user , setUser] = useState(null)
     const [loading , setLoading] = useState(true)
-    console.log(user , loading)
     const auth = getAuth(app)
 
     const createUser =(email , password)=>{
@@ -35,10 +34,10 @@ const AuthProvider = ({children}) => {
     const signOutUser =()=>{
         signOut(auth)
         .then(()=>{
-            console.log("signOut successFully")
+          alert("signOut successFully")
         })
         .catch((error)=>{
-            console.log(error)
+         alert(error)
         })
     }
 

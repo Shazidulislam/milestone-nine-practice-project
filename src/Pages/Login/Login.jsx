@@ -3,12 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 
 const Login = () => {
-  const {signInUser }= use(AuthContext)
+  const {signInUser ,setUser}= use(AuthContext)
   const [userError , setUserError] = useState("")
   const [login , setLogin]=useState(false)
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location)
   // 
   const handleLoginWithEmailAndPasswprd=(e)=>{
     e.preventDefault()
@@ -19,17 +18,16 @@ const Login = () => {
 
       signInUser(email , password)
       .then((result)=>{
-        console.log(result.user)
+        setUser(result)
         setLogin(true)
       navigate(`${location.state ? location.state :"/"}`)
 
       })
       .catch(error=>{
-        console.log(error)
+     setUserError(error)
         setUserError(error.message)
       })
 
-      console.log(email,password)
   }
     return (
 <div className='flex justify-center items-center min-h-screen '>

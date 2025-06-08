@@ -9,7 +9,6 @@ const NewsDetailsCard = ({news}) => {
     details,
     category_id
     } = news
-    console.log(news)
     return (
         <div className='p-10 '>
             <img className='w-full h-[400px] rounded object-cover' src={image_url} alt="" />
